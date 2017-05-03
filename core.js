@@ -10,6 +10,7 @@ function init() {
     game = new Game(container);
     game.render();
     game.timer = setTimeout(loop,0);
+    prueba();
 }
 
 function loop() {

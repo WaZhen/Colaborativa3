@@ -20,6 +20,8 @@ var Game = function(argContainer) {
     
     this.orbit = new OrbitControls(this.camera, this.renderer.domElement);
     
+    this.planets = [];
+    
     // provisional
     this.sphere = [];
     this.material = [];
