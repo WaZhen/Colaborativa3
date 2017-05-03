@@ -30,11 +30,10 @@ var Game = function(argContainer) {
         this.merge[i] = new THREE.Mesh(this.sphere[i], this.material[i]);
         this.merge[i].position.set(Math.random() * 10 - 20, Math.random() * 10 - 20, Math.random() * 10 - 20);
         this.scene.add(this.merge[i]);
-        // provisionla
     }
+    // provisional
     
     this.update = function() {
-        console.log("loop");
         this.orbit.controls.update();
         this.render();
     }
