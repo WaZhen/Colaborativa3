@@ -9,7 +9,7 @@ var Game = function(argContainer) {
     this.width = window.innerWidth;
     this.height = window.innerHeight
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(70, this.width / this.height, 1, 1000);
+    this.camera = new THREE.PerspectiveCamera(70, this.width / this.height, 1, 5000);
     this.camera.position.set(10, 10, 10)
     this.scene.add(this.camera);
     this.renderer = new THREE.WebGLRenderer();
@@ -20,23 +20,15 @@ var Game = function(argContainer) {
     
     this.orbit = new OrbitControls(this.camera, this.renderer.domElement);
     
+    this.background = new Background(gameScope.scene);
+    
     this.planets = [];
     
-    // provisional
-    this.sphere = [];
-    this.material = [];
-    this.merge = [];
-    for(var i = 0; i < 5; i++) {
-        this.sphere[i] = new THREE.SphereGeometry(2, 20, 20);
-        this.material[i] = new THREE.MeshBasicMaterial({color:0xff00ff});
-        this.merge[i] = new THREE.Mesh(this.sphere[i], this.material[i]);
-        this.merge[i].position.set(Math.random() * 10 - 20, Math.random() * 10 - 20, Math.random() * 10 - 20);
-        this.scene.add(this.merge[i]);
-    }
-    // provisional
+
     
     this.update = function() {
         this.orbit.controls.update();
+        this.background.update();
         this.render();
     }
     

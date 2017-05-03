@@ -19,8 +19,8 @@ function prueba() {
     // provisional
     
     // luces
-    light = new THREE.PointLight( 0xff0000, 1, 100 );
-	light.position.set( 10, 10, 10 );
+    light = new THREE.AmbientLight( 0xffffff, 1, 100 );
+	light.position.set( 20, 20, 20 );
 	game.scene.add(light);
 
     
@@ -38,12 +38,12 @@ function prueba() {
 	THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 	var mtlLoader = new THREE.MTLLoader();
 	mtlLoader.setPath( 'assets/obj/' );
-	mtlLoader.load( 'caja.mtl', function( materials ) {
+	mtlLoader.load( 'Planeta.mtl', function( materials ) {
 		materials.preload();
 		var objLoader = new THREE.OBJLoader();
 		objLoader.setMaterials( materials );
 		objLoader.setPath( 'assets/obj/' );
-		objLoader.load( 'caja.obj', function ( object ) {
+		objLoader.load( 'Planeta.obj', function ( object ) {
 			object.position.set = (0, 0, 0);
 			game.scene.add( object );
 		}, onProgress, onError );
