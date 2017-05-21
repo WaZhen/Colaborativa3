@@ -1,7 +1,17 @@
-var Planet = function (x, y, scale) {
+var Planet = function (x, y, z, radius, game) {
     this.x = x;
     this.y = y;
-    this.scale = scale;
+    this.z = z;
+    this.radius = radius;
+    this.geometry = new THREE.SphereGeometry(this.radius, 20, 20);
+    this.texture = texturasPlanetas[Math.floor(Math.random() * texturasPlanetas.length)];
+    console.log(texturasPlanetas);
+    this.material = new THREE.MeshBasicMaterial({map : this.texture});
+    this.mesh = new THREE.Mesh(this.geometry, this.material);
+    this.mesh.position.set(this.x, this.y, this.z);
+    game.scene.add(this.mesh);
+    //game.planets.push(this);
+
 }
 
 function prueba() {

@@ -16,7 +16,7 @@ var Game = function(argContainer) {
     
     
     this.camera = new THREE.PerspectiveCamera(70, this.width / this.height, 1, 7000);
-    this.camera.position.set(10, 10, 10)
+    this.camera.position.set(1, 1, 1);
     this.scene.add(this.camera);
    
     argContainer.appendChild(this.renderer.domElement);
